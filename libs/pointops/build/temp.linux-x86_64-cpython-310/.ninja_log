@@ -1,0 +1,20 @@
+# ninja log v7
+179	40849	1770817806840904800	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/subtraction/subtraction_cuda.o	c3ba25efd825e816
+72	41924	1770817806734177300	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/attention/attention_cuda.o	d1223324b7174086
+85	41956	1770817806748178000	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/ball_query/ball_query_cuda.o	7280e97d42cb0e6c
+115	41986	1770817806777178200	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/interpolation/interpolation_cuda.o	cf662f737858716
+132	42016	1770817806796178800	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/knn_query/knn_query_cuda.o	776a51fbb244ef3c
+61	42153	1770817806722178300	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/aggregation/aggregation_cuda.o	e420789b018ba5e7
+100	42286	1770817806762178900	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/grouping/grouping_cuda.o	fdaf895a3149ecbc
+155	42447	1770817806817750500	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/random_ball_query/random_ball_query_cuda.o	991cce40b3bb823a
+167	42561	1770817806829121500	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/sampling/sampling_cuda.o	9b28ee0a544e4fd
+148	62388	1770817806810747900	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/pointops_api.o	685f89de76a464f6
+78	66364	1770817806741179000	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/attention/attention_cuda_kernel.o	c3f81bcfae09c037
+107	66548	1770817806769178700	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/grouping/grouping_cuda_kernel.o	6e1750714cad5020
+186	66626	1770817806847905300	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/subtraction/subtraction_cuda_kernel.o	9deb10905ac7ae1c
+93	66676	1770817806755178200	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/ball_query/ball_query_cuda_kernel.o	ddcf7048bc5395d5
+141	66916	1770817806804181700	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/knn_query/knn_query_cuda_kernel.o	f15a5491cfa0ef69
+66	66953	1770817806728178600	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/aggregation/aggregation_cuda_kernel.o	969ae2d9935256fb
+161	66993	1770817806823116500	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/random_ball_query/random_ball_query_cuda_kernel.o	66661c8f5aec9866
+173	67299	1770817806834839200	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/sampling/sampling_cuda_kernel.o	de87b6ebd00bad92
+122	68068	1770817806785178700	/mnt/d/PointCloudsFiles/Pointcept/libs/pointops/build/temp.linux-x86_64-cpython-310/src/interpolation/interpolation_cuda_kernel.o	6649cc184232b086
