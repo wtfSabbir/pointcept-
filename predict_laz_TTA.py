@@ -58,7 +58,7 @@ CLASS_NAMES = {
     7:  "Building",
     9:  "Fence",
     10: "Gate",
-}
+} #There is no class number 8, it is ignored.
 NUM_CLASSES  = 10
 V1_MAX_CLASS = 9.0   # used for normalizing v1_pred to [0, 1]
 
