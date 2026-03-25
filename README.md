@@ -65,13 +65,12 @@ cd Pointcept
 
 ### Environment Setup
 
-This project was developed using [uv](your_uv_link_here) for environment management. `uv` is a fast Python package manager. However, the same steps work with `conda` or plain `pip` — just replace `uv venv` with `conda create` and `uv pip install` with `pip install`.
+This project was developed using [uv](https://docs.astral.sh/uv/getting-started/installation/) for environment management. `uv` is a fast Python package manager. However, the same steps work with `conda` or plain `pip` — just replace `uv venv` with `conda create` and `uv pip install` with `pip install`.
 
 #### Using uv (recommended)
 
 ```bash
 # Install uv if not already installed
-# See: your_uv_link_here
 
 # Step 1: Create and activate the environment
 # Python 3.10 is required
@@ -307,12 +306,10 @@ DataV1/
 
 ```bash
 python Data_Preprocessing/data_preprocessing.py \
-    --raw_root    /path/to/your/laz_files \
-    --output_root /path/to/DataV1 \
-    --class_map   configs/laz_static/lidar_config.py
+    --config   /Data_Preprocessing/config.yaml
 ```
 
-> The script automatically reads the `train/` and `val/` subfolder split from your LAZ directory and mirrors that structure in the output.
+> The script automatically reads the `train/` and `val/` subfolder split from your LAZ directory and mirrors that structure in the output. Just change your raw data root (input-laz), processed root (output-npy), and class map paths in the config file.
 
 ### 4.2 Training
 
@@ -372,15 +369,16 @@ tensorboard --logdir exp/laz_static/lidar_ptv3_run1
 V1 inference is handled by the V1→V2 pipeline script (see Section 5.4). However if you want to run V1 standalone, use:
 
 ```bash
-python inference/Predict_laz_V1_V2.py \
-    --single_file /path/to/input.laz \
+python inference/Predict_laz.py \
+    --input_dir   /path/to/input \
     --output_dir  /path/to/output \
-    --weight_v1   exp/laz_static/lidar_ptv3_run1/model/model_best.pth \
-    --weight_v2   exp/laz_static/lidar_ptv3_run1/model/model_best.pth \
-    --tta_mode    fast
+    --weight      exp/laz_static/lidar_ptv3_run1/model/model_best.pth \
+    --tile_size   Chunk size in metres, default 25x25, if you train your model with bigger laz chunks, then change it \
+    --tile_threshold   Files larger than this bbox get chunked (default: 30) \
+    --grid_size    Voxel size, must match the training (default: 0.05)
 ```
 
-> For V1-only inference, pass the same V1 weight to both `--weight_v1` and `--weight_v2`. Full standalone V1 inference support is planned.
+> For V1-only inference, you can add the post processing method like Test Time Augmentation as well. Just use the --tta option.
 
 ---
 
@@ -404,8 +402,8 @@ This technique is called **self-distillation** or **iterative refinement**.
          │
          ▼
   ┌─────────────┐
-  │ V1 Inference│  Run V1 on all training files
-  │  (predict_  │  Save per-point class predictions
+  │ V1 Inference│  Run V1 on all training files using the Data_Preprocessing/predict_lazv2.py 
+  │  (predict_  │  file. Save per-point class predictions
   │  lazv2.py)  │  into LAZ as extra field "v1_pred"
   └──────┬──────┘
          │
@@ -464,12 +462,9 @@ python Data_Preprocessing/predict_lazv2.py \
 
 ```bash
 python Data_Preprocessing/data_preprocessing2.py \
-    --train_gt_dir  /path/to/annotated_laz/train \
-    --val_gt_dir    /path/to/annotated_laz/val \
-    --train_v1_dir  /path/to/v1_predictions/train \
-    --val_v1_dir    /path/to/v1_predictions/val \
-    --output_npy_dir /path/to/DataV2
+    --config  /Data_Preprocessing/config.yaml \
 ```
+> Just change your train_gt_dir, val_gt_dir, train_v1_dir, val_v1_dir and output_npy_dir paths in the config.yaml file in Data_Preprocessing folder.
 
 **Output structure:**
 
@@ -624,7 +619,7 @@ python inference/Predict_laz_self_feeding.py \
 | Argument | Default | Description |
 |----------|---------|-------------|
 | `--tta_mode` | `normal` | TTA intensity |
-| `--iterations` | `3` | Self-feeding passes (Option B only) |
+| `--iterations` | `3` | Self-feeding passes |
 | `--grid_size` | `0.05` | Voxel size — must match training |
 | `--tile_size` | `25.0` | Chunk size in metres for large files |
 | `--tile_threshold` | `30.0` | Files larger than this get chunked |
